@@ -57,6 +57,10 @@ class ViewController: UIViewController {
         // We render everything to exactly the frame, so don't allow scrolling.
         collectionViewParticipants.isScrollEnabled = false
         collectionViewParticipants.register(UINib(nibName: "ParticipantCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "ParticipantCollectionViewCell")
+
+        // Use `IVSStageAudioManager` to control the underlying AVAudioSession instance. The presets provided
+        // by the IVS SDK make optimizing the audio configuration for different use-cases easy.
+        IVSStageAudioManager.sharedInstance().setPreset(canPublish ? .videoChat : .subscribeOnly)
     }
 
     override func viewDidAppear(_ animated: Bool) {
