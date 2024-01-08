@@ -22,6 +22,7 @@ class ViewController: UIViewController {
     @IBOutlet private var labelState: UILabel!
     @IBOutlet private var switchPublish: UISwitch!
     @IBOutlet private var collectionViewParticipants: UICollectionView!
+    @IBOutlet private var labelVersion: UILabel!
 
     // MARK: - AmazonIVSBroadcast Properties
 
@@ -43,6 +44,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        labelVersion.text = "SDK: \(IVSSession.sdkVersion)"
 
         participants.append(StageParticipant(isLocal: true, participantId: nil))
         if canPublish {
