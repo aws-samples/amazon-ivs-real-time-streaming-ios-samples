@@ -2,7 +2,10 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:BasicRealTime.xcodeproj">
+      location = "group:BasicRealTime/BasicRealTime.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:RealTimePlayer/RealTimePlayer.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		557F08766BE83C814D875503 /* Pods_BasicRealTime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2207EC0A7E5497C233595BEE /* Pods_BasicRealTime.framework */; };
+		CDEF626E2ABAAF1863390C0F /* libPods-IVSClients-BasicRealTime.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC4C53BBA1AF9FAFFA24C41 /* libPods-IVSClients-BasicRealTime.a */; };
 		EA0877262A1D8C1E00D08FEF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0877252A1D8C1E00D08FEF /* AppDelegate.swift */; };
 		EA0877282A1D8C1E00D08FEF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0877272A1D8C1E00D08FEF /* SceneDelegate.swift */; };
 		EA08772A2A1D8C1E00D08FEF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0877292A1D8C1E00D08FEF /* ViewController.swift */; };
@@ -17,15 +17,15 @@
 		EA5E02932A1E3B9C008A0874 /* StageParticipant.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5E02922A1E3B9C008A0874 /* StageParticipant.swift */; };
 		EA5E02982A1E3FC5008A0874 /* ParticipantCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5E02962A1E3FC5008A0874 /* ParticipantCollectionViewCell.swift */; };
 		EA5E02992A1E3FC5008A0874 /* ParticipantCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA5E02972A1E3FC5008A0874 /* ParticipantCollectionViewCell.xib */; };
-		EA5E029B2A1E40A8008A0874 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5E029A2A1E40A8008A0874 /* UIView+Extensions.swift */; };
 		EA5E029D2A1E4346008A0874 /* ParticipantCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5E029C2A1E4346008A0874 /* ParticipantCollectionViewLayout.swift */; };
 		EA5E029F2A1E4377008A0874 /* StageLayoutCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5E029E2A1E4377008A0874 /* StageLayoutCalculator.swift */; };
+		EA6D45352B7EA2D200982878 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6D45342B7EA2D200982878 /* UIView+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2207EC0A7E5497C233595BEE /* Pods_BasicRealTime.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BasicRealTime.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3C38FD3D185222A7AAC3975B /* Pods-BasicRealTime.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasicRealTime.debug.xcconfig"; path = "Target Support Files/Pods-BasicRealTime/Pods-BasicRealTime.debug.xcconfig"; sourceTree = "<group>"; };
-		B449C74DC22A5C6604A7EFD9 /* Pods-BasicRealTime.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BasicRealTime.release.xcconfig"; path = "Target Support Files/Pods-BasicRealTime/Pods-BasicRealTime.release.xcconfig"; sourceTree = "<group>"; };
+		11F1B35180A71448243E2721 /* Pods-IVSClients-BasicRealTime.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IVSClients-BasicRealTime.release.xcconfig"; path = "Target Support Files/Pods-IVSClients-BasicRealTime/Pods-IVSClients-BasicRealTime.release.xcconfig"; sourceTree = "<group>"; };
+		8DC4C53BBA1AF9FAFFA24C41 /* libPods-IVSClients-BasicRealTime.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IVSClients-BasicRealTime.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D947D46D41279D58B8769797 /* Pods-IVSClients-BasicRealTime.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IVSClients-BasicRealTime.debug.xcconfig"; path = "Target Support Files/Pods-IVSClients-BasicRealTime/Pods-IVSClients-BasicRealTime.debug.xcconfig"; sourceTree = "<group>"; };
 		EA0877222A1D8C1E00D08FEF /* BasicRealTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BasicRealTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA0877252A1D8C1E00D08FEF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EA0877272A1D8C1E00D08FEF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,9 +37,9 @@
 		EA5E02922A1E3B9C008A0874 /* StageParticipant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageParticipant.swift; sourceTree = "<group>"; };
 		EA5E02962A1E3FC5008A0874 /* ParticipantCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantCollectionViewCell.swift; sourceTree = "<group>"; };
 		EA5E02972A1E3FC5008A0874 /* ParticipantCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ParticipantCollectionViewCell.xib; sourceTree = "<group>"; };
-		EA5E029A2A1E40A8008A0874 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		EA5E029C2A1E4346008A0874 /* ParticipantCollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantCollectionViewLayout.swift; sourceTree = "<group>"; };
 		EA5E029E2A1E4377008A0874 /* StageLayoutCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageLayoutCalculator.swift; sourceTree = "<group>"; };
+		EA6D45342B7EA2D200982878 /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,28 +47,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				557F08766BE83C814D875503 /* Pods_BasicRealTime.framework in Frameworks */,
+				CDEF626E2ABAAF1863390C0F /* libPods-IVSClients-BasicRealTime.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B112C1B50FE455401045CAFA /* Pods */ = {
+		A81486B0B288D8964C447C72 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3C38FD3D185222A7AAC3975B /* Pods-BasicRealTime.debug.xcconfig */,
-				B449C74DC22A5C6604A7EFD9 /* Pods-BasicRealTime.release.xcconfig */,
+				D947D46D41279D58B8769797 /* Pods-IVSClients-BasicRealTime.debug.xcconfig */,
+				11F1B35180A71448243E2721 /* Pods-IVSClients-BasicRealTime.release.xcconfig */,
 			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
-		C17CF669FBC75071622DE6C0 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				2207EC0A7E5497C233595BEE /* Pods_BasicRealTime.framework */,
-			);
-			name = Frameworks;
+			name = Pods;
+			path = ../Pods;
 			sourceTree = "<group>";
 		};
 		EA0877192A1D8C1E00D08FEF = {
@@ -76,8 +69,8 @@
 			children = (
 				EA0877242A1D8C1E00D08FEF /* BasicRealTime */,
 				EA0877232A1D8C1E00D08FEF /* Products */,
-				B112C1B50FE455401045CAFA /* Pods */,
-				C17CF669FBC75071622DE6C0 /* Frameworks */,
+				A81486B0B288D8964C447C72 /* Pods */,
+				EC01C90A063600634AB3A949 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -109,12 +102,29 @@
 		EA5E02A02A1E9628008A0874 /* Boilerplate */ = {
 			isa = PBXGroup;
 			children = (
+				EA6D45332B7EA2D200982878 /* Common */,
 				EA0877252A1D8C1E00D08FEF /* AppDelegate.swift */,
 				EA0877302A1D8C1F00D08FEF /* LaunchScreen.storyboard */,
 				EA0877272A1D8C1E00D08FEF /* SceneDelegate.swift */,
-				EA5E029A2A1E40A8008A0874 /* UIView+Extensions.swift */,
 			);
 			path = Boilerplate;
+			sourceTree = "<group>";
+		};
+		EA6D45332B7EA2D200982878 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				EA6D45342B7EA2D200982878 /* UIView+Extensions.swift */,
+			);
+			name = Common;
+			path = ../../../Common;
+			sourceTree = "<group>";
+		};
+		EC01C90A063600634AB3A949 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8DC4C53BBA1AF9FAFFA24C41 /* libPods-IVSClients-BasicRealTime.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -124,11 +134,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EA0877362A1D8C1F00D08FEF /* Build configuration list for PBXNativeTarget "BasicRealTime" */;
 			buildPhases = (
-				8CC2B70494B7D99FFFE7D80B /* [CP] Check Pods Manifest.lock */,
+				5A0142E825E0A13F1B8853DA /* [CP] Check Pods Manifest.lock */,
 				EA08771E2A1D8C1E00D08FEF /* Sources */,
 				EA08771F2A1D8C1E00D08FEF /* Frameworks */,
 				EA0877202A1D8C1E00D08FEF /* Resources */,
-				DD18618AC3D1FADDD517770D /* [CP] Embed Pods Frameworks */,
+				930DBB7971C06C9C86942F59 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -187,7 +197,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		8CC2B70494B7D99FFFE7D80B /* [CP] Check Pods Manifest.lock */ = {
+		5A0142E825E0A13F1B8853DA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -202,28 +212,28 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-BasicRealTime-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-IVSClients-BasicRealTime-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DD18618AC3D1FADDD517770D /* [CP] Embed Pods Frameworks */ = {
+		930DBB7971C06C9C86942F59 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BasicRealTime/Pods-BasicRealTime-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-IVSClients-BasicRealTime/Pods-IVSClients-BasicRealTime-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BasicRealTime/Pods-BasicRealTime-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-IVSClients-BasicRealTime/Pods-IVSClients-BasicRealTime-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BasicRealTime/Pods-BasicRealTime-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IVSClients-BasicRealTime/Pods-IVSClients-BasicRealTime-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -233,13 +243,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EA5E029B2A1E40A8008A0874 /* UIView+Extensions.swift in Sources */,
 				EA5E02982A1E3FC5008A0874 /* ParticipantCollectionViewCell.swift in Sources */,
 				EA5E029F2A1E4377008A0874 /* StageLayoutCalculator.swift in Sources */,
 				EA5E02932A1E3B9C008A0874 /* StageParticipant.swift in Sources */,
 				EA08772A2A1D8C1E00D08FEF /* ViewController.swift in Sources */,
 				EA5E029D2A1E4346008A0874 /* ParticipantCollectionViewLayout.swift in Sources */,
 				EA0877262A1D8C1E00D08FEF /* AppDelegate.swift in Sources */,
+				EA6D45352B7EA2D200982878 /* UIView+Extensions.swift in Sources */,
 				EA0877282A1D8C1E00D08FEF /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -382,7 +392,7 @@
 		};
 		EA0877372A1D8C1F00D08FEF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3C38FD3D185222A7AAC3975B /* Pods-BasicRealTime.debug.xcconfig */;
+			baseConfigurationReference = D947D46D41279D58B8769797 /* Pods-IVSClients-BasicRealTime.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -411,7 +421,7 @@
 		};
 		EA0877382A1D8C1F00D08FEF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B449C74DC22A5C6604A7EFD9 /* Pods-BasicRealTime.release.xcconfig */;
+			baseConfigurationReference = 11F1B35180A71448243E2721 /* Pods-IVSClients-BasicRealTime.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

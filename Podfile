@@ -1,11 +1,16 @@
-# Uncomment the next line to define a global platform for your project
 platform :ios, '14.0'
+
 workspace 'RealTimeSamples'
 
-target 'BasicRealTime' do
-  # Comment the next line if you don't want to use dynamic frameworks
-  use_frameworks!
+# All of the following projects consume the AmazonIVSBroadcast framework as clients
+abstract_target 'IVSClients' do
+    pod 'AmazonIVSBroadcast/Stages', '~> 1.15.0'
 
-  # Pods for BasicRealTime
-  pod 'AmazonIVSBroadcast/Stages', '~> 1.15.0'
+    target 'BasicRealTime' do
+        project 'BasicRealTime/BasicRealTime.xcodeproj'
+    end
+
+    target 'RealTimePlayer' do
+        project 'RealTimePlayer/RealTimePlayer.xcodeproj'
+    end
 end
