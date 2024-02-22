@@ -7,5 +7,5 @@ target 'BasicRealTime' do
   use_frameworks!
 
   # Pods for BasicRealTime
-  pod 'AmazonIVSBroadcast/Stages', '~> 1.14.1'
+  pod 'AmazonIVSBroadcast/Stages', '~> 1.15.0'
 end
