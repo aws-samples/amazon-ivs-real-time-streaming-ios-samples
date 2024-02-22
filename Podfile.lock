@@ -1,16 +1,16 @@
 PODS:
-  - AmazonIVSBroadcast/Stages (1.14.1)
+  - AmazonIVSBroadcast/Stages (1.15.0)
 
 DEPENDENCIES:
-  - AmazonIVSBroadcast/Stages (~> 1.14.1)
+  - AmazonIVSBroadcast/Stages (~> 1.15.0)
 
 SPEC REPOS:
   trunk:
     - AmazonIVSBroadcast
 
 SPEC CHECKSUMS:
-  AmazonIVSBroadcast: 6704abdbf1d54d9ba26da603ac82fcc2240902c4
+  AmazonIVSBroadcast: 0a2c078b1276ad1598c45404123d91e9a05bb5f1
 
-PODFILE CHECKSUM: 55639395007f2aee170b308c680c1f003df3ea9d
+PODFILE CHECKSUM: 8330ff5e793c1def3b08c61521dbe4ac8225a560
 
-COCOAPODS: 1.12.1
+COCOAPODS: 1.15.2
