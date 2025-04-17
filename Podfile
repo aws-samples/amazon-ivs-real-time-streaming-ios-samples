@@ -4,7 +4,7 @@ workspace 'RealTimeSamples'
 
 # All of the following projects consume the AmazonIVSBroadcast framework as clients
 abstract_target 'IVSClients' do
-    pod 'AmazonIVSBroadcast/Stages', '1.28.1'
+    pod 'AmazonIVSBroadcast/Stages', '1.29.0'
 
     target 'BasicRealTime' do
         project 'BasicRealTime/BasicRealTime.xcodeproj'
