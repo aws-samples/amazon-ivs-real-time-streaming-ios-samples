@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		862438FC2E58112F0071CB1A /* CustomSourcesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862438FB2E58112F0071CB1A /* CustomSourcesViewController.swift */; };
 		CDEF626E2ABAAF1863390C0F /* libPods-IVSClients-BasicRealTime.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC4C53BBA1AF9FAFFA24C41 /* libPods-IVSClients-BasicRealTime.a */; };
 		EA0877262A1D8C1E00D08FEF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0877252A1D8C1E00D08FEF /* AppDelegate.swift */; };
 		EA0877282A1D8C1E00D08FEF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0877272A1D8C1E00D08FEF /* SceneDelegate.swift */; };
-		EA08772A2A1D8C1E00D08FEF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0877292A1D8C1E00D08FEF /* ViewController.swift */; };
+		EA08772A2A1D8C1E00D08FEF /* LivePublishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0877292A1D8C1E00D08FEF /* LivePublishViewController.swift */; };
 		EA08772D2A1D8C1E00D08FEF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA08772B2A1D8C1E00D08FEF /* Main.storyboard */; };
 		EA08772F2A1D8C1F00D08FEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA08772E2A1D8C1F00D08FEF /* Assets.xcassets */; };
 		EA0877322A1D8C1F00D08FEF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA0877302A1D8C1F00D08FEF /* LaunchScreen.storyboard */; };
+		EA1234572C1D8C1E00D08FEF /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1234562C1D8C1E00D08FEF /* TableViewController.swift */; };
 		EA5E02932A1E3B9C008A0874 /* StageParticipant.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5E02922A1E3B9C008A0874 /* StageParticipant.swift */; };
 		EA5E02982A1E3FC5008A0874 /* ParticipantCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5E02962A1E3FC5008A0874 /* ParticipantCollectionViewCell.swift */; };
 		EA5E02992A1E3FC5008A0874 /* ParticipantCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA5E02972A1E3FC5008A0874 /* ParticipantCollectionViewCell.xib */; };
@@ -24,16 +26,18 @@
 
 /* Begin PBXFileReference section */
 		11F1B35180A71448243E2721 /* Pods-IVSClients-BasicRealTime.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IVSClients-BasicRealTime.release.xcconfig"; path = "Target Support Files/Pods-IVSClients-BasicRealTime/Pods-IVSClients-BasicRealTime.release.xcconfig"; sourceTree = "<group>"; };
+		862438FB2E58112F0071CB1A /* CustomSourcesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSourcesViewController.swift; sourceTree = "<group>"; };
 		8DC4C53BBA1AF9FAFFA24C41 /* libPods-IVSClients-BasicRealTime.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IVSClients-BasicRealTime.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D947D46D41279D58B8769797 /* Pods-IVSClients-BasicRealTime.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IVSClients-BasicRealTime.debug.xcconfig"; path = "Target Support Files/Pods-IVSClients-BasicRealTime/Pods-IVSClients-BasicRealTime.debug.xcconfig"; sourceTree = "<group>"; };
 		EA0877222A1D8C1E00D08FEF /* BasicRealTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BasicRealTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA0877252A1D8C1E00D08FEF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EA0877272A1D8C1E00D08FEF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		EA0877292A1D8C1E00D08FEF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EA0877292A1D8C1E00D08FEF /* LivePublishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LivePublishViewController.swift; sourceTree = "<group>"; };
 		EA08772C2A1D8C1E00D08FEF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EA08772E2A1D8C1F00D08FEF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EA0877312A1D8C1F00D08FEF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EA0877332A1D8C1F00D08FEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EA1234562C1D8C1E00D08FEF /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		EA5E02922A1E3B9C008A0874 /* StageParticipant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageParticipant.swift; sourceTree = "<group>"; };
 		EA5E02962A1E3FC5008A0874 /* ParticipantCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantCollectionViewCell.swift; sourceTree = "<group>"; };
 		EA5E02972A1E3FC5008A0874 /* ParticipantCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ParticipantCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -89,12 +93,14 @@
 				EA08772E2A1D8C1F00D08FEF /* Assets.xcassets */,
 				EA0877332A1D8C1F00D08FEF /* Info.plist */,
 				EA08772B2A1D8C1E00D08FEF /* Main.storyboard */,
+				862438FB2E58112F0071CB1A /* CustomSourcesViewController.swift */,
 				EA5E02962A1E3FC5008A0874 /* ParticipantCollectionViewCell.swift */,
 				EA5E02972A1E3FC5008A0874 /* ParticipantCollectionViewCell.xib */,
 				EA5E029C2A1E4346008A0874 /* ParticipantCollectionViewLayout.swift */,
 				EA5E029E2A1E4377008A0874 /* StageLayoutCalculator.swift */,
 				EA5E02922A1E3B9C008A0874 /* StageParticipant.swift */,
-				EA0877292A1D8C1E00D08FEF /* ViewController.swift */,
+				EA1234562C1D8C1E00D08FEF /* TableViewController.swift */,
+				EA0877292A1D8C1E00D08FEF /* LivePublishViewController.swift */,
 			);
 			path = BasicRealTime;
 			sourceTree = "<group>";
@@ -245,12 +251,14 @@
 			files = (
 				EA5E02982A1E3FC5008A0874 /* ParticipantCollectionViewCell.swift in Sources */,
 				EA5E029F2A1E4377008A0874 /* StageLayoutCalculator.swift in Sources */,
+				862438FC2E58112F0071CB1A /* CustomSourcesViewController.swift in Sources */,
 				EA5E02932A1E3B9C008A0874 /* StageParticipant.swift in Sources */,
-				EA08772A2A1D8C1E00D08FEF /* ViewController.swift in Sources */,
+				EA08772A2A1D8C1E00D08FEF /* LivePublishViewController.swift in Sources */,
 				EA5E029D2A1E4346008A0874 /* ParticipantCollectionViewLayout.swift in Sources */,
 				EA0877262A1D8C1E00D08FEF /* AppDelegate.swift in Sources */,
 				EA6D45352B7EA2D200982878 /* UIView+Extensions.swift in Sources */,
 				EA0877282A1D8C1E00D08FEF /* SceneDelegate.swift in Sources */,
+				EA1234572C1D8C1E00D08FEF /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,6 +409,8 @@
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BasicRealTime/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to your camera to publish your video feed";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "We need access to your microphone to publish your audio feed";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -430,6 +440,8 @@
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BasicRealTime/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need access to your camera to publish your video feed";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "We need access to your microphone to publish your audio feed";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

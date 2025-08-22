@@ -1,15 +1,115 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nav-controller">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="nav-scene">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nav-controller" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nav-bar">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="table-controller" kind="relationship" relationship="rootViewController" id="nav-to-table"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nav-first-responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-684" y="-27"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="table-scene">
+            <objects>
+                <tableViewController id="table-controller" customClass="TableViewController" customModule="BasicRealTime" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="table-view">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <sections>
+                            <tableViewSection id="table-section">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="live-broadcast-cell">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="live-broadcast-cell" id="live-broadcast-content">
+                                            <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Live Publish" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="live-broadcast-label">
+                                                    <rect key="frame" x="20" y="0.0" width="334.33333333333331" height="43.666666666666664"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="BYZ-38-t0r" kind="show" id="live-broadcast-segue"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="custom-media-cell">
+                                        <rect key="frame" x="0.0" y="93.666667938232422" width="393" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="custom-media-cell" id="custom-media-content">
+                                            <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Custom Media Sources" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="custom-media-label">
+                                                    <rect key="frame" x="20" y="0.0" width="334.33333333333331" height="43.666666666666671"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="custom-sources-controller" kind="show" id="custom-sources-segue"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="mixer-transitions-cell">
+                                        <rect key="frame" x="0.0" y="137.33333587646484" width="393" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mixer-transitions-cell" id="mixer-transitions-content">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Mixer and Transitions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mixer-transitions-label">
+                                                    <rect key="frame" x="20" y="0.0" width="353" height="43.666666666666657"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="table-controller" id="table-data-source"/>
+                            <outlet property="delegate" destination="table-controller" id="table-delegate"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="table-nav-item"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="table-first-responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-350" y="-27"/>
+        </scene>
+        <!--Live Publish-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="BasicRealTime" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,7 +118,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hHc-Kr-lM6">
-                                <rect key="frame" x="0.0" y="148.33333333333331" width="393" height="669.66666666666674"/>
+                                <rect key="frame" x="0.0" y="192.33333333333331" width="393" height="625.66666666666674"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewLayout key="collectionViewLayout" id="7m7-vx-a1D" customClass="ParticipantCollectionViewLayout" customModule="BasicRealTime" customModuleProvider="target"/>
                                 <cells/>
@@ -27,7 +127,7 @@
                                 </connections>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GtR-aQ-Nwy" userLabel="Controls Container">
-                                <rect key="frame" x="0.0" y="58.999999999999993" width="393" height="89.333333333333314"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="89.333333333333314"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gBl-XV-x1D">
                                         <rect key="frame" x="8" y="8" width="377" height="73.333333333333329"/>
@@ -54,7 +154,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="f2y-tw-1qT">
-                                                <rect key="frame" x="0.0" y="42.333333333333329" width="377" height="31"/>
+                                                <rect key="frame" x="0.0" y="42.333333333333343" width="377" height="31"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="State: Disconnected" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wH5-lZ-9WR">
                                                         <rect key="frame" x="0.0" y="0.0" width="260.66666666666669" height="31"/>
@@ -108,6 +208,7 @@
                             <constraint firstItem="hHc-Kr-lM6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vZb-Sp-ni6"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Live Publish" id="view-controller-nav-item"/>
                     <connections>
                         <outlet property="buttonJoin" destination="FUW-VS-v05" id="pIi-P0-ODW"/>
                         <outlet property="collectionViewParticipants" destination="hHc-Kr-lM6" id="AbT-mK-R7b"/>
@@ -121,16 +222,129 @@
             </objects>
             <point key="canvasLocation" x="16" y="-27"/>
         </scene>
+        <!--Custom Media Sources-->
+        <scene sceneID="custom-sources-scene">
+            <objects>
+                <viewController storyboardIdentifier="CustomSourcesViewController" id="custom-sources-controller" customClass="CustomSourcesViewController" customModule="BasicRealTime" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="custom-sources-view">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="custom-collection-view">
+                                <rect key="frame" x="0.0" y="148.33333333333331" width="393" height="669.66666666666674"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewLayout key="collectionViewLayout" id="custom-collection-layout" customClass="ParticipantCollectionViewLayout" customModule="BasicRealTime" customModuleProvider="target"/>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="custom-sources-controller" id="custom-collection-datasource"/>
+                                </connections>
+                            </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="custom-controls-container" userLabel="Controls Container">
+                                <rect key="frame" x="0.0" y="58.999999999999993" width="393" height="89.333333333333314"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="custom-main-stack">
+                                        <rect key="frame" x="8" y="8" width="377" height="73.333333333333329"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="custom-token-stack">
+                                                <rect key="frame" x="0.0" y="0.0" width="377" height="34.333333333333336"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="748" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Participant Token" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="custom-token-field">
+                                                        <rect key="frame" x="0.0" y="0.0" width="299" height="34.333333333333336"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="custom-join-button">
+                                                        <rect key="frame" x="307" y="0.0" width="70" height="34.333333333333336"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="custom-join-width"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="filled" title="Join"/>
+                                                        <connections>
+                                                            <action selector="joinTapped:" destination="custom-sources-controller" eventType="touchUpInside" id="custom-join-action"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="custom-status-stack">
+                                                <rect key="frame" x="0.0" y="42.333333333333329" width="377" height="31"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="State: Disconnected" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="custom-state-label">
+                                                        <rect key="frame" x="0.0" y="0.0" width="260.66666666666669" height="31"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="255" verticalHuggingPriority="251" text="Publish" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="custom-publish-label">
+                                                        <rect key="frame" x="268.66666666666669" y="0.0" width="51.333333333333314" height="31"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="custom-publish-switch">
+                                                        <rect key="frame" x="328" y="0.0" width="51" height="31"/>
+                                                        <connections>
+                                                            <action selector="publishToggled:" destination="custom-sources-controller" eventType="valueChanged" id="custom-publish-action"/>
+                                                        </connections>
+                                                    </switch>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="custom-main-stack" secondAttribute="bottom" constant="8" id="custom-stack-bottom"/>
+                                    <constraint firstItem="custom-main-stack" firstAttribute="leading" secondItem="custom-controls-container" secondAttribute="leading" constant="8" id="custom-stack-leading"/>
+                                    <constraint firstItem="custom-main-stack" firstAttribute="top" secondItem="custom-controls-container" secondAttribute="top" constant="8" id="custom-stack-top"/>
+                                    <constraint firstAttribute="trailing" secondItem="custom-main-stack" secondAttribute="trailing" constant="8" id="custom-stack-trailing"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SDK: X" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="custom-version-label">
+                                <rect key="frame" x="343.66666666666669" y="797" width="45.333333333333314" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" systemColor="systemGrayColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="custom-safe-area"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="custom-safe-area" firstAttribute="bottom" secondItem="custom-collection-view" secondAttribute="bottom" id="custom-collection-bottom"/>
+                            <constraint firstItem="custom-collection-view" firstAttribute="leading" secondItem="custom-safe-area" secondAttribute="leading" id="custom-collection-leading"/>
+                            <constraint firstItem="custom-collection-view" firstAttribute="top" secondItem="custom-controls-container" secondAttribute="bottom" id="custom-collection-top"/>
+                            <constraint firstItem="custom-safe-area" firstAttribute="trailing" secondItem="custom-collection-view" secondAttribute="trailing" id="custom-collection-trailing"/>
+                            <constraint firstItem="custom-controls-container" firstAttribute="leading" secondItem="custom-safe-area" secondAttribute="leading" id="custom-controls-leading"/>
+                            <constraint firstItem="custom-controls-container" firstAttribute="top" secondItem="custom-safe-area" secondAttribute="top" id="custom-controls-top"/>
+                            <constraint firstItem="custom-safe-area" firstAttribute="trailing" secondItem="custom-controls-container" secondAttribute="trailing" id="custom-controls-trailing"/>
+                            <constraint firstItem="custom-safe-area" firstAttribute="bottom" secondItem="custom-version-label" secondAttribute="bottom" constant="4" id="custom-version-bottom"/>
+                            <constraint firstItem="custom-safe-area" firstAttribute="trailing" secondItem="custom-version-label" secondAttribute="trailing" constant="4" id="custom-version-trailing"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Custom Media Sources" id="custom-nav-item"/>
+                    <connections>
+                        <outlet property="buttonJoin" destination="custom-join-button" id="custom-join-outlet"/>
+                        <outlet property="collectionViewParticipants" destination="custom-collection-view" id="custom-collection-outlet"/>
+                        <outlet property="labelState" destination="custom-state-label" id="custom-state-outlet"/>
+                        <outlet property="labelVersion" destination="custom-version-label" id="custom-version-outlet"/>
+                        <outlet property="switchPublish" destination="custom-publish-switch" id="custom-publish-outlet"/>
+                        <outlet property="textFieldToken" destination="custom-token-field" id="custom-token-outlet"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="custom-first-responder" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="400" y="-27"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="secondarySystemBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGrayColor">
-            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
