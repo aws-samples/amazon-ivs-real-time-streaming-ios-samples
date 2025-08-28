@@ -4,8 +4,9 @@
 
 import UIKit
 import AmazonIVSBroadcast
+import AVFoundation
 
-class CustomSourcesViewController: UIViewController {
+class CustomSourcesViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
 
     enum ChangeType {
         case joined, updated, left
@@ -29,6 +30,25 @@ class CustomSourcesViewController: UIViewController {
     private var stage: IVSStage?
     private var streams = [IVSLocalStageStream]()
     private let deviceDiscovery = IVSDeviceDiscovery()
+    private var customImageSource: IVSCustomImageSource?
+    private var customAudioSource: IVSCustomAudioSource?
+    
+    // MARK: - Video Capture Properties
+    private var captureSession: AVCaptureSession?
+    private var videoOutput: AVCaptureVideoDataOutput?
+    private var previewLayer: AVCaptureVideoPreviewLayer?
+    private let queue = DispatchQueue(label: "camera-queue")
+    private var videoDevice: AVCaptureDevice?
+    private var zoomTimer: Timer?
+    private var isZoomedIn = false
+    private var zoomCountdown = 5
+    private var countdownTimer: Timer?
+    
+    // MARK: - Audio Capture Properties
+    private var audioEngine: AVAudioEngine?
+    private var inputNode: AVAudioInputNode?
+    private var bufferCount = 0
+
 
     // MARK: - Sample app state
 
@@ -75,6 +95,10 @@ class CustomSourcesViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         UIApplication.shared.isIdleTimerDisabled = false
+        zoomTimer?.invalidate()
+        zoomTimer = nil
+        countdownTimer?.invalidate()
+        countdownTimer = nil
     }
 
     // MARK: - IBActions
@@ -109,24 +133,19 @@ class CustomSourcesViewController: UIViewController {
         stage?.refreshStrategy()
     }
 
-    // MARK: - Utility functions
+    // MARK: - Setup Local Publishing Device
 
     private func setupLocalUser() {
         guard canPublish else { return }
-        // Gather our camera and microphone once permissions have been granted
-        let devices = deviceDiscovery.listLocalDevices()
+        // Create customer image and audio sources
         streams.removeAll()
-        if let camera = devices.compactMap({ $0 as? IVSCamera }).first {
-            streams.append(IVSLocalStageStream(device: camera))
-            // Use a front camera if available.
-            if let frontSource = camera.listAvailableInputSources().first(where: { $0.position == .front }) {
-                camera.setPreferredInputSource(frontSource)
-            }
-        }
-        if let mic = devices.compactMap({ $0 as? IVSMicrophone }).first {
-            streams.append(IVSLocalStageStream(device: mic))
-        }
+        customImageSource = deviceDiscovery.createImageSource(withName: "custom video")
+        streams.append(IVSLocalStageStream(device: customImageSource!))
+        customAudioSource = deviceDiscovery.createAudioSource(withName: "custom audio")
+        streams.append(IVSLocalStageStream(device: customAudioSource!))
+        
         participants[0].streams = streams
+        participants[0].showZoomStatus = true // Enable zoom status for custom sources
         participantsChanged(index: 0, changeType: .updated)
     }
 
@@ -164,6 +183,8 @@ class CustomSourcesViewController: UIViewController {
                     print("Audio permission denied")
                     return
                 }
+                self?.setupVideoCaptureSession()
+                self?.setupAudioCaptureSession()
                 self?.setupLocalUser()
             }
         }
@@ -185,7 +206,236 @@ class CustomSourcesViewController: UIViewController {
         @unknown default: mainThreadResult(false)
         }
     }
+    
+    // MARK: Video Capture Methods
+    
+    private func setupVideoCaptureSession() {
+        let captureSession = AVCaptureSession()
+        captureSession.beginConfiguration()
+        
+        // Configure session preset for quality
+        captureSession.sessionPreset = .hd1920x1080
+        
+        // Setup video input - use back camera
+        guard let videoDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back),
+              let videoInput = try? AVCaptureDeviceInput(device: videoDevice),
+              captureSession.canAddInput(videoInput) else {
+            print("Failed to setup video input")
+            return
+        }
+        
+        self.videoDevice = videoDevice
+        
+        captureSession.addInput(videoInput)
+        
+        // Setup video output for raw sample buffers
+        let videoOutput = AVCaptureVideoDataOutput()
+        videoOutput.setSampleBufferDelegate(self, queue: queue)
+        videoOutput.videoSettings = [
+            kCVPixelBufferPixelFormatTypeKey as String: Int(kCVPixelFormatType_32BGRA)
+        ]
+        
+        if captureSession.canAddOutput(videoOutput) {
+            captureSession.addOutput(videoOutput)
+            self.videoOutput = videoOutput
+            
+            // Configure the video connection for portrait orientation
+            if let connection = videoOutput.connection(with: .video) {
+                if #available(iOS 17.0, *) {
+                    if connection.isVideoRotationAngleSupported(90) {
+                        connection.videoRotationAngle = 90 // Rotate 90 degrees to get portrait from landscape
+                    }
+                } else {
+                    if connection.isVideoOrientationSupported {
+                        connection.videoOrientation = .portrait
+                    }
+                }
+                
+                // No mirroring for back camera
+                if connection.isVideoMirroringSupported {
+                    connection.isVideoMirrored = false
+                }
+            }
+        }
+        
+//        // Setup preview layer
+//        let previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+//        previewLayer.videoGravity = .resizeAspectFill
+//        
+//        DispatchQueue.main.async { [weak self] in
+//            guard let self = self else { return }
+//            //previewLayer.frame = self.cameraPreviewView.bounds
+//            self.cameraPreviewView.layer.addSublayer(previewLayer)
+//            self.previewLayer = previewLayer
+//        }
+        
+        captureSession.commitConfiguration()
+        
+        // Start the session on a background queue
+        DispatchQueue.global(qos: .userInitiated).async {
+            captureSession.startRunning()
+        }
+        
+        self.captureSession = captureSession
+        
+        // Start zoom timer
+        startZoomTimer()
+    }
+    
+    // MARK: - AVCaptureVideoDataOutputSampleBufferDelegate
+    
+    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+        // Example: Log frame info ((may cause hang))
+        if let formatDescription = CMSampleBufferGetFormatDescription(sampleBuffer) {
+            let dimensions = CMVideoFormatDescriptionGetDimensions(formatDescription)
+            print("Frame: \(dimensions.width)x\(dimensions.height)")
+        }
+        
+        // Pass to IVS's Custom Image Source
+        customImageSource?.onSampleBuffer(sampleBuffer)
+    }
+    
+    private func stopVideoCaptureSession() {
+        zoomTimer?.invalidate()
+        zoomTimer = nil
+        countdownTimer?.invalidate()
+        countdownTimer = nil
+        captureSession?.stopRunning()
+        previewLayer?.removeFromSuperlayer()
+        captureSession = nil
+        videoOutput = nil
+        previewLayer = nil
+        videoDevice = nil
+    }
+    
+    // MARK: - Zoom Control Methods
+    
+    private func startZoomTimer() {
+        // Start countdown timer that updates every second
+        countdownTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
+            self?.updateCountdown()
+        }
+        
+        // Start zoom timer that toggles zoom every 5 seconds
+        zoomTimer = Timer.scheduledTimer(withTimeInterval: 5.0, repeats: true) { [weak self] _ in
+            self?.toggleZoom()
+        }
+        
+        // Initial UI update
+        updateZoomStatus()
+    }
+    
+    private func toggleZoom() {
+        guard let device = videoDevice else { return }
+        
+        do {
+            try device.lockForConfiguration()
+            
+            let targetZoom: CGFloat = isZoomedIn ? 1.0 : min(device.activeFormat.videoMaxZoomFactor, 3.0)
+            
+            // Animate zoom change over 1 second
+            device.ramp(toVideoZoomFactor: targetZoom, withRate: 2.0)
+            
+            isZoomedIn.toggle()
+            zoomCountdown = 5 // Reset countdown
+            
+            device.unlockForConfiguration()
+            
+            print("Zoom \(isZoomedIn ? "out" : "in") to \(targetZoom)x")
+            
+            // Update UI immediately after zoom change
+            updateZoomStatus()
+            
+        } catch {
+            print("Failed to adjust zoom: \(error)")
+        }
+    }
+    
+    private func updateCountdown() {
+        zoomCountdown -= 1
+        if zoomCountdown < 0 {
+            zoomCountdown = 5
+        }
+        updateZoomStatus()
+    }
+    
+    private func updateZoomStatus() {
+        guard participants.count > 0 else { return }
+        
+        let currentZoom = isZoomedIn ? "3.0x" : "1.0x"
+        let nextZoom = isZoomedIn ? "1.0x" : "3.0x"
+        let status = "Zoom: \(currentZoom) → \(nextZoom) in \(zoomCountdown)s"
+        
+        participants[0].zoomStatus = status
+        participantsChanged(index: 0, changeType: .updated)
+    }
+    
+    // MARK: Audio Capture Methods
+    
+    private func setupAudioCaptureSession() {
+        do {
+            IVSSession.applicationAudioSessionStrategy = .noAction
+            
+            // Configure audio session
+            let audioSession = AVAudioSession.sharedInstance()
+            try audioSession.setCategory(.playAndRecord, mode: .default, options: [.mixWithOthers])
+            try audioSession.setActive(true)
+            
+            // Create and configure audio engine
+            let audioEngine = AVAudioEngine()
+            let inputNode = audioEngine.inputNode
+            
+            // Get the input format (device's native format)
+            let inputFormat = inputNode.outputFormat(forBus: 0)
+            print("Input format: \(inputFormat)")
+            
+            // Install tap to capture PCM buffers
+            inputNode.installTap(onBus: 0, bufferSize: 1024, format: inputFormat) { [weak self] buffer, time in
+                self?.processPCMBuffer(buffer, at: time)
+            }
+            
+            // Start the audio engine
+            try audioEngine.start()
+            
+            self.audioEngine = audioEngine
+            self.inputNode = inputNode
+            
+            print("Audio capture started successfully")
+            
+        } catch {
+            print("Failed to setup audio capture: \(error)")
+        }
+    }
+    
+    private func processPCMBuffer(_ buffer: AVAudioPCMBuffer, at time: AVAudioTime) {
+        // This is where you get access to the raw PCM audio data
+        
+        let channelCount = Int(buffer.format.channelCount)
+        let frameLength = Int(buffer.frameLength)
+        
+        // Example: Log buffer info (may cause hang)
+        print("PCM Buffer - Channels: \(channelCount), Frames: \(frameLength), Sample Rate: \(buffer.format.sampleRate)")
 
+        // TODO: Here you would feed this PCM data to IVS custom audio source
+        // For now, this demonstrates that we're successfully capturing PCM data
+        
+        customAudioSource?.onPCMBuffer(buffer, at: time)
+    }
+    
+    private func stopAudioCaptureSession() {
+        inputNode?.removeTap(onBus: 0)
+        audioEngine?.stop()
+        audioEngine = nil
+        inputNode = nil
+        
+        do {
+            try AVAudioSession.sharedInstance().setActive(false)
+        } catch {
+            print("Failed to deactivate audio session: \(error)")
+        }
+        
+        print("Audio capture stopped")
+    }
 }
 
 // MARK: - IVSStageStrategy

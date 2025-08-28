@@ -22,10 +22,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b5j-z7-bGR">
-                        <rect key="frame" x="0.0" y="0.0" width="136" height="110"/>
+                        <rect key="frame" x="0.0" y="0.0" width="136" height="127"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="BEw-mP-hVx">
-                                <rect key="frame" x="4" y="4" width="128" height="102"/>
+                                <rect key="frame" x="4" y="4" width="128" height="119"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Participant ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hQY-79-EE7">
                                         <rect key="frame" x="0.0" y="0.0" width="128" height="17"/>
@@ -63,6 +63,12 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zoom: 1.0x" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zSt-Qm-8Yz">
+                                        <rect key="frame" x="0.0" y="102" width="128" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
+                                        <color key="textColor" systemColor="systemYellowColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -92,6 +98,7 @@
                 <outlet property="labelPublishState" destination="Iir-hn-mwV" id="e87-8G-kob"/>
                 <outlet property="labelSubscribeState" destination="Bfr-Tk-F4x" id="vw9-0i-g9B"/>
                 <outlet property="labelVideoMuted" destination="c0d-wP-dtH" id="hRt-bn-hju"/>
+                <outlet property="labelZoomStatus" destination="zSt-Qm-8Yz" id="Zm4-Hf-9Lp"/>
                 <outlet property="viewPreviewContainer" destination="cOw-GU-bYb" id="L1p-11-az2"/>
             </connections>
             <point key="canvasLocation" x="131" y="-11"/>
@@ -100,6 +107,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

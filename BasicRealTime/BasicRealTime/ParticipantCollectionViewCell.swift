@@ -14,6 +14,7 @@ class ParticipantCollectionViewCell: UICollectionViewCell {
     @IBOutlet private var labelVideoMuted: UILabel!
     @IBOutlet private var labelAudioMuted: UILabel!
     @IBOutlet private var labelAudioVolume: UILabel!
+    @IBOutlet private var labelZoomStatus: UILabel!
 
     private var registeredStreams: Set<IVSStageStream> = []
     private var imageDevice: IVSImageDevice? {
@@ -39,6 +40,14 @@ class ParticipantCollectionViewCell: UICollectionViewCell {
         // `isMuted != false` covers the stream not existing, as well as being muted.
         labelVideoMuted.text = "Video Muted: \(newImageStream?.isMuted != false)"
         labelAudioMuted.text = "Audio Muted: \(newAudioStream?.isMuted != false)"
+        
+        // Show/hide zoom status based on participant setting
+        if participant.showZoomStatus {
+            labelZoomStatus.text = participant.zoomStatus
+            labelZoomStatus.isHidden = false
+        } else {
+            labelZoomStatus.isHidden = true
+        }
 
         if existingImageStream !== newImageStream {
             // The image stream has changed
