@@ -90,6 +90,16 @@ class CustomSourcesViewController: UIViewController, AVCaptureVideoDataOutputSam
         super.viewDidAppear(animated)
         // Prevent the screen from turning off during a call.
         UIApplication.shared.isIdleTimerDisabled = true
+        
+        // Cleanup before view disappears
+        stage?.leave()
+        stage = nil
+        
+        stopVideoCaptureSession()
+        stopAudioCaptureSession()
+        
+        customImageSource = nil
+        customAudioSource = nil
     }
 
     override func viewDidDisappear(_ animated: Bool) {

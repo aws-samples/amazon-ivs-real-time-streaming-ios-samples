@@ -11,7 +11,7 @@ struct StageParticipant {
     var publishState: IVSParticipantPublishState = .notPublished
     var subscribeState: IVSParticipantSubscribeState = .notSubscribed
     var streams: [IVSStageStream] = []
-    var zoomStatus: String = "Zoom: 1.0x"
+    var zoomStatus: String?
     var showZoomStatus: Bool = false
 
     init(isLocal: Bool, participantId: String?) {

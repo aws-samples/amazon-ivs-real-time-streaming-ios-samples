@@ -75,6 +75,10 @@ class ViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         UIApplication.shared.isIdleTimerDisabled = false
+        
+        // Cleanup before view disappears
+        stage?.leave()
+        stage = nil
     }
 
     // MARK: - IBActions

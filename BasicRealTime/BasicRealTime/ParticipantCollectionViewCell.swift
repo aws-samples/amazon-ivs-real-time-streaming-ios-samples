@@ -46,6 +46,7 @@ class ParticipantCollectionViewCell: UICollectionViewCell {
             labelZoomStatus.text = participant.zoomStatus
             labelZoomStatus.isHidden = false
         } else {
+            labelZoomStatus.text = ""
             labelZoomStatus.isHidden = true
         }
 
