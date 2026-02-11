@@ -3,11 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8A2D7ED937EB4E401F485212 /* libPods-IVSClients-RealTimePlayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 83AB368C595662BCA2275493 /* libPods-IVSClients-RealTimePlayer.a */; };
+		1C0970BB2F3BE47300772F31 /* AmazonIVSBroadcastStages in Frameworks */ = {isa = PBXBuildFile; productRef = 1C0970BA2F3BE47300772F31 /* AmazonIVSBroadcastStages */; };
 		EA6D451E2B7E96E200982878 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6D451D2B7E96E200982878 /* AppDelegate.swift */; };
 		EA6D45202B7E96E200982878 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6D451F2B7E96E200982878 /* SceneDelegate.swift */; };
 		EA6D45222B7E96E200982878 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6D45212B7E96E200982878 /* ViewController.swift */; };
@@ -18,9 +18,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3B9ABFDC1CCB74C3A7C9A8F6 /* Pods-IVSClients-RealTimePlayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IVSClients-RealTimePlayer.debug.xcconfig"; path = "Target Support Files/Pods-IVSClients-RealTimePlayer/Pods-IVSClients-RealTimePlayer.debug.xcconfig"; sourceTree = "<group>"; };
-		83AB368C595662BCA2275493 /* libPods-IVSClients-RealTimePlayer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IVSClients-RealTimePlayer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AA2447561A89C1A4B81D3E70 /* Pods-IVSClients-RealTimePlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IVSClients-RealTimePlayer.release.xcconfig"; path = "Target Support Files/Pods-IVSClients-RealTimePlayer/Pods-IVSClients-RealTimePlayer.release.xcconfig"; sourceTree = "<group>"; };
 		EA6D451A2B7E96E200982878 /* RealTimePlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealTimePlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA6D451D2B7E96E200982878 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EA6D451F2B7E96E200982878 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,38 +34,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8A2D7ED937EB4E401F485212 /* libPods-IVSClients-RealTimePlayer.a in Frameworks */,
+				1C0970BB2F3BE47300772F31 /* AmazonIVSBroadcastStages in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2AF42890C5366728065508C7 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				3B9ABFDC1CCB74C3A7C9A8F6 /* Pods-IVSClients-RealTimePlayer.debug.xcconfig */,
-				AA2447561A89C1A4B81D3E70 /* Pods-IVSClients-RealTimePlayer.release.xcconfig */,
-			);
-			name = Pods;
-			path = ../Pods;
-			sourceTree = "<group>";
-		};
-		398283DC04C5501C29EB9B4D /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				83AB368C595662BCA2275493 /* libPods-IVSClients-RealTimePlayer.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		EA6D45112B7E96E200982878 = {
 			isa = PBXGroup;
 			children = (
 				EA6D451C2B7E96E200982878 /* RealTimePlayer */,
 				EA6D451B2B7E96E200982878 /* Products */,
-				2AF42890C5366728065508C7 /* Pods */,
-				398283DC04C5501C29EB9B4D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -119,11 +96,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EA6D452E2B7E96E300982878 /* Build configuration list for PBXNativeTarget "RealTimePlayer" */;
 			buildPhases = (
-				EF2628E0C7C628414D5C140B /* [CP] Check Pods Manifest.lock */,
 				EA6D45162B7E96E200982878 /* Sources */,
 				EA6D45172B7E96E200982878 /* Frameworks */,
 				EA6D45182B7E96E200982878 /* Resources */,
-				EA7271B0F09FA85E264C6A44 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -158,6 +133,9 @@
 				Base,
 			);
 			mainGroup = EA6D45112B7E96E200982878;
+			packageReferences = (
+				1C0970B92F3BE47300772F31 /* XCLocalSwiftPackageReference "../AmazonIVSBroadcast" */,
+			);
 			productRefGroup = EA6D451B2B7E96E200982878 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -179,48 +157,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		EA7271B0F09FA85E264C6A44 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-IVSClients-RealTimePlayer/Pods-IVSClients-RealTimePlayer-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-IVSClients-RealTimePlayer/Pods-IVSClients-RealTimePlayer-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-IVSClients-RealTimePlayer/Pods-IVSClients-RealTimePlayer-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EF2628E0C7C628414D5C140B /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-IVSClients-RealTimePlayer-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EA6D45162B7E96E200982878 /* Sources */ = {
@@ -375,7 +311,6 @@
 		};
 		EA6D452F2B7E96E300982878 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B9ABFDC1CCB74C3A7C9A8F6 /* Pods-IVSClients-RealTimePlayer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -405,7 +340,6 @@
 		};
 		EA6D45302B7E96E300982878 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AA2447561A89C1A4B81D3E70 /* Pods-IVSClients-RealTimePlayer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -455,6 +389,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		1C0970B92F3BE47300772F31 /* XCLocalSwiftPackageReference "../AmazonIVSBroadcast" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../AmazonIVSBroadcast;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1C0970BA2F3BE47300772F31 /* AmazonIVSBroadcastStages */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AmazonIVSBroadcastStages;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EA6D45122B7E96E200982878 /* Project object */;
 }
