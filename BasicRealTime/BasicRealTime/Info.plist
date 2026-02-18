@@ -21,9 +21,5 @@
 			</array>
 		</dict>
 	</dict>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>We need access to your microphone to publish your audio feed</string>
-	<key>NSCameraUsageDescription</key>
-	<string>We need access to your camera to publish your video feed</string>
 </dict>
 </plist>

@@ -39,7 +39,7 @@ class ParticipantCollectionViewCell: UICollectionViewCell {
         // `isMuted != false` covers the stream not existing, as well as being muted.
         labelVideoMuted.text = "Video Muted: \(newImageStream?.isMuted != false)"
         labelAudioMuted.text = "Audio Muted: \(newAudioStream?.isMuted != false)"
-
+        
         if existingImageStream !== newImageStream {
             // The image stream has changed
             updatePreview()
